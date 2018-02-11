@@ -10,6 +10,8 @@ try {
   Wit = require('node-wit').Wit;
   interactive = require('node-wit').interactive;
 }
+var express = require('express');
+var app = express();
 
 const accessToken = '5QGZLIXIE5TKWBTHH3KOWPBF5YSBAJBP';
 
@@ -69,3 +71,8 @@ const handleMessage = ({entities}) => {
 
 const client = new Wit({accessToken});
 interactive(client, handleMessage);
+
+var port = process.env.PORT || 3000;
+app.listen(port, function () {
+    console.log('Umbler listening on port %s', port);
+});
