@@ -1,0 +1,27 @@
+{
+  "name": "aurora",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "directories": {
+    "example": "examples"
+  },
+  "dependencies": {
+    "node-wit": "^5.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node main.js",
+    "test": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WagnerSodre/aurora.git"
+  },
+  "author": "Wagner Sodré",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/WagnerSodre/aurora/issues"
+  },
+  "homepage": "https://github.com/WagnerSodre/aurora#readme"
+}
