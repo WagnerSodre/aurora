@@ -1,15 +1,25 @@
-'use strict';
-
-var express = require('express');
-var app = express();
-
-app.set('port', process.env.PORT || 3000);
+var app = require('express')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+var aurora = require("./aurora.js");
 
 app.get('/', function(req, res){
-    res.send('hello world');
+  res.sendFile(__dirname + '/index.html');
 });
 
-// Only works on 3000 regardless of what I set environment port to or how I set
-// [value] in app.set('port', [value]).
-// app.listen(3000);
-app.listen(app.get('port'));
+io.on('connection', function(socket){
+  console.log('a user connected');
+  socket.on('disconnect', function(){
+    console.log('user disconnected');
+  });
+  socket.on('chat message', function(msg){
+    console.log('message: ' + msg);
+    io.emit('chat message', msg);
+    console.log('aurora: ' + JSON.stringify(aurora.talk(msg)));
+    //io.emit(aurora.talk(msg));
+  });
+});
+
+http.listen(3000, function(){
+  console.log('listening on *:3000');
+});
