@@ -15,7 +15,8 @@ io.on('connection', function(socket){
   socket.on('chat message', function(msg){
     console.log('message: ' + msg);
     io.emit('chat message', msg);
-    console.log('aurora: ' + JSON.stringify(aurora.talk(msg)));
+    aurora.talk(msg).then((rsp)=>{io.emit('chat message',rsp);});
+    //console.log('aurora: ' + aurora.talk(msg));
     //io.emit(aurora.talk(msg));
   });
 });

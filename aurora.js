@@ -61,7 +61,7 @@ exports.talk = function(msg) {
     if (bye) {
       return("See ya!");
     } else if (greetings) {
-      return("hey this is joke bot :)");
+      return("Hi, my name is Aurora, how are you?");
     } else {
       return("I can tell jokes! Say 'tell me a joke about tech'!");
     }
@@ -71,7 +71,7 @@ exports.talk = function(msg) {
   //interactive(client, handleMessage);
 let answer;
 
-    client.message(msg)
+  return(  client.message(msg)
     .then(function (rsp) {
       if (handleMessage) {
         answer = (handleMessage(rsp));
@@ -82,6 +82,6 @@ let answer;
       return answer;
     }).catch(function (err) {
       return console.error(err);
-    })
+    }));
 
 };
