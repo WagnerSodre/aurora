@@ -8,7 +8,9 @@
   },
   "dependencies": {
     "express": "^4.16.2",
+    "geoip-lite": "^1.2.1",
     "node-wit": "^5.0.0",
+    "request-ip": "^2.0.2",
     "socket.io": "^2.0.4"
   },
   "devDependencies": {},
