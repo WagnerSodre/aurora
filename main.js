@@ -2,6 +2,9 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var aurora = require("./aurora/aurora.js");
+var cors = require('cors');
+
+app.use(cors());
 
 
 app.get('/', function(req, res){
